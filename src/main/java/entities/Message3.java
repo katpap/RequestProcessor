@@ -13,8 +13,6 @@ import main.java.entities.Message3.Adjustment;
 @XmlRootElement
 public class Message3 extends Message{
 	
-	 @Autowired
-	 private ServletContext context;
 	
 	public enum Adjustment {//we limit the adjustment types with an enum as validation
 		//as they are specified per requirements 
@@ -59,7 +57,8 @@ public class Message3 extends Message{
 	
 	public boolean isValid(){
 		
-		if(this.getAmount()==null || this.getType()==null || this.getAdjAmount()==null || this.getAdjType()==null){
+		if(this.getAmount()==null || this.getType()==null || this.getAdjAmount()==null || this.getAdjType()==null 
+				||this.adjustment==null){
 			return false;
 		}
 		return true;
@@ -67,7 +66,7 @@ public class Message3 extends Message{
 	
 	public void saveSales() {
 
-		MessageProcessor.msgList.add(this);
+		MessageProcessor.adjustmentList.add(this);
 		Sale sale = new Sale();
 		sale.setType(this.getType());
 		sale.setAmount(this.getAmount());

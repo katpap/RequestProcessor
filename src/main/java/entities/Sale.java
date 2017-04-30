@@ -6,22 +6,22 @@ public class Sale {
 		private String type;
 		private BigDecimal amount=BigDecimal.ZERO;
 		private Integer quantity;
-		public synchronized String getType() {
+		public  String getType() {
 			return type;
 		}
-		public synchronized void setType(String type) {
+		public  void setType(String type) {
 			this.type = type;
 		}
-		public synchronized BigDecimal getAmount() {
+		public  BigDecimal getAmount() {
 			return amount;
 		}
-		public synchronized void setAmount(BigDecimal amount) {
+		public  void setAmount(BigDecimal amount) {
 			this.amount = amount;
 		}
-		public synchronized Integer getQuantity() {
+		public  Integer getQuantity() {
 			return quantity;
 		}
-		public synchronized void setQuantity(Integer quantity) {
+		public  void setQuantity(Integer quantity) {
 			this.quantity = quantity;
 		}		
 

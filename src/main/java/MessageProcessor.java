@@ -25,7 +25,7 @@ public class MessageProcessor {
 	//all incoming requests add to the same list.
 	
 	public static List<Sale> list = Collections.synchronizedList(new ArrayList<Sale>());
-	public static List<Message3> msgList = new ArrayList<Message3>();
+	public static List<Message3> adjustmentList = new ArrayList<Message3>();
 	public static HashMap<String, BigDecimal> reportTotals = new HashMap<String, BigDecimal>();
 	public static HashMap<String, Integer> reportNumber = new HashMap<String, Integer>();
 	//it could be ConcurrentHashMap for concurrent read/writes (not our case), if we did not use it in synchronized method 
@@ -89,7 +89,7 @@ public class MessageProcessor {
 	private static void createAdjustmentReport(){//the final report, when msgCounter reaches 50 messages
 		//time for reporting
 		System.out.println("I'm pausing now................Please don't bother");
-		for(Message3 m: msgList){//this list contains only adjustment messages(Message3)
+		for(Message3 m: adjustmentList){//this list contains only adjustment messages(Message3)
 			System.out.println(m.toString());
 		}
 	}
